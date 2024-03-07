@@ -19,4 +19,14 @@
 		</PackageReference>
 	</ItemGroup>
 
+	<PropertyGroup>
+		<CodeAnalysisRuleSet>$(MSBuildThisFileDirectory).sonarlint\components-corecsharp.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="$(MSBuildThisFileDirectory).sonarlint\components-core\CSharp\SonarLint.xml" Link="SonarLint.xml">
+			<Visible>False</Visible>
+		</AdditionalFiles>
+	</ItemGroup>
+
 </Project>
