@@ -1,8 +1,8 @@
 {
   "ServerUri": "http://localhost:9000/",
   "Organization": null,
-  "ProjectKey": "Components-Core",
-  "ProjectName": "Components Core",
+  "ProjectKey": "MediaMetricsPro",
+  "ProjectName": "MediaMetricsPro",
   "Profiles": {
     "Secrets": {
       "ProfileKey": "AYc9OORGKlsZIDog4aVa",
