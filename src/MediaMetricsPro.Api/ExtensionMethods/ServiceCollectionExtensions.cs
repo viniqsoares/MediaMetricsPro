@@ -1,6 +1,7 @@
-﻿using System.Reflection;
+﻿using Asp.Versioning;
 using MediaMetricsPro.Api.Endpoints.Interfaces;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using System.Reflection;
 
 namespace MediaMetricsPro.Api.ExtensionMethods;
 
@@ -18,24 +19,18 @@ public static class ServiceCollectionExtensions
 
         return services;
     }
-}
 
-public static class ApplicationBuilderExtensions
-{
-    public static IApplicationBuilder MapEndpoints(
-    this WebApplication app,
-    RouteGroupBuilder? routeGroupBuilder = null)
+    public static IServiceCollection AddVersioning(this IServiceCollection services)
     {
-        var endpoints = app
-            .Services
-            .GetRequiredService<IEnumerable<IEndpoint>>();
+        services.AddApiVersioning(opt =>
+        {
+            /* Retorna os headers "api-supported-versions" e "api-deprecated-versions"
+               indicando versoes suportadas pela API e o que esta como deprecated*/
+            opt.ReportApiVersions = true;
 
-        IEndpointRouteBuilder builder =
-            routeGroupBuilder is null ? app : routeGroupBuilder;
-
-        foreach (var endpoint in endpoints)
-            endpoint.MapEndpoint(builder);
-
-        return app;
+            opt.AssumeDefaultVersionWhenUnspecified = true;
+            opt.DefaultApiVersion = new ApiVersion(1);
+        });
+        return services;
     }
 }
