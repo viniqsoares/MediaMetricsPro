@@ -1,8 +1,6 @@
-<type>[scope]: <description>
-
-[body]
-
-[footer(s)]
+[type](optional scope): [subject]
+[optional body]
+[optional footer]
 
 # A properly formed Git commit subject line should always be able to complete
 # the following sentence:
