@@ -5,9 +5,9 @@ using MediaMetricsPro.Application.DataContract.Messages;
 namespace MediaMetricsPro.Application.DataContract.Validation;
 
 public class SellerValidation : AbstractValidator<SellerRequest>
-{
-    public SellerValidation()
     {
+    public SellerValidation()
+        {
         RuleFor(x => x.name)
             .NotNull().WithMessage(SellerMessages.NameIsNull)
             .NotEmpty().WithMessage(SellerMessages.NameIsEmpty);
@@ -15,5 +15,5 @@ public class SellerValidation : AbstractValidator<SellerRequest>
         RuleFor(x => x.contact)
             .NotNull().WithMessage(SellerMessages.ContactIsNull)
             .NotEmpty().WithMessage(SellerMessages.ContactIsNull);
+        }
     }
-}
