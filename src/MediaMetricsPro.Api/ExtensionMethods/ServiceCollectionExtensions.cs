@@ -6,9 +6,9 @@ using System.Reflection;
 namespace MediaMetricsPro.Api.ExtensionMethods;
 
 public static class ServiceCollectionExtensions
-    {
+{
     public static IServiceCollection AddEndpoints(this IServiceCollection services, Assembly assembly)
-        {
+    {
         var serviceDescriptors = assembly
                 .DefinedTypes
                 .Where(type => type is { IsAbstract: false, IsInterface: false } &&
@@ -18,10 +18,10 @@ public static class ServiceCollectionExtensions
         services.TryAddEnumerable(serviceDescriptors);
 
         return services;
-        }
+    }
 
     public static IServiceCollection AddVersioning(this IServiceCollection services)
-        {
+    {
         services.AddApiVersioning(opt =>
         {
             /* Retorna os headers "api-supported-versions" e "api-deprecated-versions"
@@ -32,5 +32,5 @@ public static class ServiceCollectionExtensions
             opt.DefaultApiVersion = new ApiVersion(1);
         });
         return services;
-        }
     }
+}

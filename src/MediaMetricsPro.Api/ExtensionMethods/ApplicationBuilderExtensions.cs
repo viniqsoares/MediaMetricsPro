@@ -3,11 +3,11 @@
 namespace MediaMetricsPro.Api.ExtensionMethods;
 
 public static class ApplicationBuilderExtensions
-    {
+{
     public static IApplicationBuilder MapEndpoints(
     this WebApplication app,
     RouteGroupBuilder? routeGroupBuilder = null)
-        {
+    {
         var endpoints = app
             .Services
             .GetRequiredService<IEnumerable<IEndpoint>>();
@@ -19,5 +19,5 @@ public static class ApplicationBuilderExtensions
             endpoint.MapEndpoint(builder);
 
         return app;
-        }
     }
+}
