@@ -144,7 +144,7 @@ csharp_new_line_between_query_expression_clauses = true
 
 # Preferências de recuo
 csharp_indent_block_contents = true
-csharp_indent_braces = true
+csharp_indent_braces = false
 csharp_indent_case_contents = true
 csharp_indent_case_contents_when_block = true
 csharp_indent_labels = one_less_than_current
@@ -236,7 +236,7 @@ dotnet_style_qualification_for_method = false:suggestion
 dotnet_style_qualification_for_event = false:suggestion
 end_of_line = crlf
 dotnet_style_readonly_field = true:suggestion
-dotnet_style_require_accessibility_modifiers = for_non_interface_members:silent
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:suggestion
 dotnet_style_allow_multiple_blank_lines_experimental = false:silent
 dotnet_style_allow_statement_immediately_after_block_experimental = true:suggestion
 dotnet_style_coalesce_expression = true:silent
