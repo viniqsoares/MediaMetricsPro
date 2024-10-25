@@ -3,7 +3,7 @@ using MediaMetricsPro.Application.DataContract.DataContract.Request;
 using MediaMetricsPro.Application.DataContract.Messages;
 using MediaMetricsPro.Application.DataContract.Validation;
 
-namespace MediaMetricsPro.UnitTest.Vaidations;
+namespace MediaMetricsPro.UnitTest.DataContract.Validations;
 
 public class SellerValidatorTest
 {
