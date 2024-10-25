@@ -1,0 +1,7 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+GET https://localhost:7083/sellers HTTP/1.1
+Content-Type: application/json
+#Date: {{$datetime iso8601}}
+{
+
+}
