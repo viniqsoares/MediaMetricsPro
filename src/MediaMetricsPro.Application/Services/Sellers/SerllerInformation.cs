@@ -1,12 +1,19 @@
-﻿using MediaMetricsPro.Domain.Register;
+﻿using Mapster;
+using MediaMetricsPro.Application.DataContract.DataContract.Response;
+using MediaMetricsPro.Domain.Services.Sellers;
 
 namespace MediaMetricsPro.Application.Services.Sellers;
-internal class SerllerInformation : IGetSellerInformation
+internal class SellerInformation(ISellerInformation sellerInformationService): IGetSellerInformation
 {
-    public Task<IReadOnlyCollection<Seller>> GetAll() => throw new NotImplementedException();
+    public async Task<IReadOnlyCollection<SellerResponse>> GetSellersInformation(CancellationToken ct)
+    {
+        var sellers = await sellerInformationService.GetSellersInformation(ct);
+        var response = sellers.Adapt<IReadOnlyCollection<SellerResponse>>();
+        return response;
+    }
 }
 
 public interface IGetSellerInformation
 {
-    Task<IReadOnlyCollection<Seller>> GetAll();
+    Task<IReadOnlyCollection<SellerResponse>> GetSellersInformation(CancellationToken ct);
 }
