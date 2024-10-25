@@ -2,6 +2,12 @@
 
 public class Country
 {
-    public long Id { get; set; }
-    public required string Name { get; set; }
+    public Country(short id, string name)
+    {
+        Id = id;
+        Name = name;
+    }
+
+    public long Id { get; private set; }
+    public string Name { get; private set; }
 }

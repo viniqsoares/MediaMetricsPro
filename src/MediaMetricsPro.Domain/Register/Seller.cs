@@ -2,15 +2,16 @@
 
 public class Seller
 {
-    public Seller(string name, Address address)
+    public Seller(int id, string name, Address address)
     {
+        Id = id;
         Name = name;
         Address = address;
         Status = Status.Active;
     }
 
-    public long Id { get; set; }
-    public string Name { get; set; }
-    public Address Address { get; set; }
-    public Status Status { get; set; }
+    public long Id { get; private set; }
+    public string Name { get; private set; }
+    public Address Address { get; private set; }
+    public Status Status { get; private set; }
 }

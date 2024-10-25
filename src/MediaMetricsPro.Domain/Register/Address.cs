@@ -2,7 +2,7 @@
 
 public class Address
 {
-    public Address(long id, string street, int number, string district, string city, State state, Country country)
+    public Address(Guid id, string street, string number, string district, string city, State state)
     {
         Id = id;
         Street = street;
@@ -10,14 +10,12 @@ public class Address
         District = district;
         City = city;
         State = state;
-        Country = country;
     }
 
-    public long Id { get; set; }
-    public string Street { get; set; }
-    public int Number { get; set; }
-    public string District { get; set; }
-    public string City { get; set; }
-    public required State State { get; set; }
-    public required Country Country { get; set; }
+    public Guid Id { get; private set; }
+    public string Street { get; private set; }
+    public string Number { get; private set; }
+    public string District { get; private set; }
+    public string City { get; private set; }
+    public State State { get; private set; }
 }
