@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using MediaMetricsPro.Application.DataContract.DataContract;
+using MediaMetricsPro.Application.DataContract.DataContract.Request;
 using MediaMetricsPro.Application.DataContract.Messages;
 
 namespace MediaMetricsPro.Application.DataContract.Validation;
