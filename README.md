@@ -1,1 +1,2 @@
 # MediaMetricsPro
+[![SonarCloud](https://github.com/viniqsoares/MediaMetricsPro/actions/workflows/analyze.yml/badge.svg?branch=main)](https://github.com/viniqsoares/MediaMetricsPro/actions/workflows/analyze.yml)
