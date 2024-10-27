@@ -1,16 +1,28 @@
 using MediaMetricsPro.Api.ExtensionMethods;
 using MediaMetricsPro.Application.DependendyInjection;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder
     .Services
-    .AddEndpointsApiExplorer()
     .AddEndpoints(typeof(Program).Assembly)
+    .AddEndpointsApiExplorer()
+    .AddSwaggerGen(config => config.SwaggerDoc("v1", new OpenApiInfo { Title = "Media Metric Api", Version = "v1" }))
     .AddApplicationDependencies(builder.Configuration)
     ;
 
 var app = builder.Build();
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger()
+       .UseSwaggerUI(config =>
+       {
+           config.SwaggerEndpoint("/swagger/v1/swagger.json", "Media Metric Pro");
+           config.RoutePrefix = string.Empty;
+       });
+}
+
 app.MapEndpoints();
-app.Run();
+await app.RunAsync();
