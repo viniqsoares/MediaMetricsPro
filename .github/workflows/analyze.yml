@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   build:
-    name: Build and analyze
+    name: Analyze
     runs-on: windows-latest
     steps:
       - name: Set up JDK 17
@@ -44,5 +44,6 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"viniqsoares_MediaMetricsPro" /o:"viniqsoares" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build --no-incremental
+            dotnet restore
+            dotnet build -c Release --no-restore --no-incremental
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
