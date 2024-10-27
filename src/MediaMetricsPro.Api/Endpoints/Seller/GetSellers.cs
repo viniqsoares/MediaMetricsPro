@@ -12,6 +12,6 @@ public class GetSellers : IEndpoint
             var sellers = await service.GetSellersInformation(ct);
             return Results.Ok(sellers);
         })
-           .WithTags("Tags.Sellers");
+           .WithTags("Sellers");
     }
 }
