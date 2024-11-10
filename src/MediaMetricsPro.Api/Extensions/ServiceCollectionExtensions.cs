@@ -1,9 +1,11 @@
-﻿using Asp.Versioning;
+﻿using System.Reflection;
+using Asp.Versioning;
 using MediaMetricsPro.Api.Endpoints.Interfaces;
+using MediaMetricsPro.Infrastructure.Database.EF.Context;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using System.Reflection;
 
-namespace MediaMetricsPro.Api.ExtensionMethods;
+namespace MediaMetricsPro.Api.Extensions;
 
 public static class ServiceCollectionExtensions
 {
@@ -11,12 +13,17 @@ public static class ServiceCollectionExtensions
     {
         var serviceDescriptors = assembly
                 .DefinedTypes
-                .Where(type => type is { IsAbstract: false, IsInterface: false } &&
-                type.IsAssignableTo(typeof(IEndpoint)))
+                .Where(type => type is { IsAbstract: false, IsInterface: false } && type.IsAssignableTo(typeof(IEndpoint)))
                 .Select(type => ServiceDescriptor.Transient(typeof(IEndpoint), type));
 
         services.TryAddEnumerable(serviceDescriptors);
 
+        return services;
+    }
+
+    public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration config)
+    {
+        services.AddDbContext<ApplicationContext>(opt => opt.UseNpgsql(config.GetConnectionString("DefaultConnectionString")));
         return services;
     }
 
