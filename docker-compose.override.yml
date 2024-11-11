@@ -1,0 +1,45 @@
+services:
+  mediametricspro.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+    ports:
+      - "8080"
+      - "8081"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro    
+    depends_on:
+        - db
+  db:
+    image: postgres:16
+    hostname: postgresql
+    restart: always
+    shm_size: 128mb
+    environment:
+        POSTGRES_USER: MediaMetricProUser
+        POSTGRES_PASSWORD: MediaMetricProPass
+        POSTGRES_DB: mediametricpro
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+    healthcheck:
+        test: ["CMD-SHELL", "pg_isready -d mediametricpro -U MediaMetricProUser"]
+        interval: 10s
+        timeout: 5s
+        retries: 5  
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - 8080:8080
+
+volumes:
+  postgresql:
+  postgresql_data:      
