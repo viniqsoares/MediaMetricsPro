@@ -2,7 +2,11 @@
 
 public class Seller
 {
-    public Seller(int id, string name, Address address)
+    public Seller()
+    {
+    }
+
+    public Seller(long id, string name, Address address) : base()
     {
         Id = id;
         Name = name;

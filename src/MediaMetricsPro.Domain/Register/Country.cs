@@ -2,7 +2,11 @@
 
 public class Country
 {
-    public Country(short id, string name)
+    public Country()
+    {
+    }
+
+    public Country(short id, string name) : base()
     {
         Id = id;
         Name = name;
