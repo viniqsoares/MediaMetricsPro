@@ -21,7 +21,7 @@ internal class SellersInformationService : ISellerInformation
     {
         var country = new Country(55, "Brasil");
         var state = new State(1, "Rio de Janeiro", country);
-        var address = new Address(Guid.NewGuid(), "Rodovia amaral Peixoto km90", "110", "Bananeira", "Araruama", state);
+        var address = new Address(1, "Rodovia amaral Peixoto km90", "110", "Bananeira", "Araruama", state);
         var informations = new List<Seller>() { new Seller(0, "Filipi", address) };
 
         return await Task.FromResult<List<Seller>>(informations);

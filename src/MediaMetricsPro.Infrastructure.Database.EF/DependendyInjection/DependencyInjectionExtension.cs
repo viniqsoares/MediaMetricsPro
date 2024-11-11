@@ -11,8 +11,14 @@ public static class DependencyInjectionExtension
 {
     public static IServiceCollection AddInfrastructureDependencies(this IServiceCollection services, IConfiguration config)
     {
-        services.AddDbContext<ApplicationContext>(opt => opt.UseNpgsql(config.GetConnectionString("DefaultConnection")));
+        services.AddDatabaseDependencies(config);
         services.AddScoped<ISellerInformation, SellersInformationService>();
+        return services;
+    }
+
+    private static IServiceCollection AddDatabaseDependencies(this IServiceCollection services, IConfiguration config)
+    {
+        services.AddDbContext<ApplicationContext>(opt => opt.UseNpgsql(config.GetConnectionString(ContextNameInfo.ApplicationContextName)));
         return services;
     }
 }
