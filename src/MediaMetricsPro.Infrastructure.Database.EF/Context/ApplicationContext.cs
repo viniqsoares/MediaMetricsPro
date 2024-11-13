@@ -10,9 +10,16 @@ public class ApplicationContext : DbContext
     {
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder builder) =>
+        builder
+        .EnableDetailedErrors()
+        .EnableSensitiveDataLogging()
+
+        ;
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
+        base.OnModelCreating(modelBuilder);
     }
 }

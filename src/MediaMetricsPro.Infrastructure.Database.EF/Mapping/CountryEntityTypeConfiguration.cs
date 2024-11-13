@@ -9,8 +9,12 @@ internal class CountryEntityTypeConfiguration : IEntityTypeConfiguration<Country
     public void Configure(EntityTypeBuilder<Country> builder)
     {
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id)
+            .ValueGeneratedNever();
         builder.Property(x => x.Name)
-            .HasColumnName("Nome");
+            .HasColumnName("Nome")
+            .HasMaxLength(200)
+            .IsRequired();
 
         builder.ToTable("Pais");
     }

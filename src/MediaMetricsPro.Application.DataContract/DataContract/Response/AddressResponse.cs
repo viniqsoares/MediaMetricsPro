@@ -6,7 +6,7 @@ public record AddressResponse
     {
     }
 
-    public Guid Id { get; init; }
+    public long Id { get; init; }
     public required string Street { get; init; }
     public required string Number { get; init; }
     public required string District { get; init; }

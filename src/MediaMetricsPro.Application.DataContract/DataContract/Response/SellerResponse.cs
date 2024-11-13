@@ -8,7 +8,7 @@ public record SellerResponse
     {
     }
 
-    public int Id { get; init; }
+    public long Id { get; init; }
     public required string Name { get; init; }
 
     public required StatusSeller Status { get; init; }

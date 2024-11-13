@@ -1,0 +1,6 @@
+services:
+  mediametricspro.api:
+    image: ${DOCKER_REGISTRY-}mediametricsproapi
+    build:
+      context: .
+      dockerfile: src/MediaMetricsPro.Api/Dockerfile

@@ -2,7 +2,11 @@
 
 public class Address
 {
-    public Address(Guid id, string street, string number, string district, string city, State state)
+    public Address()
+    {
+    }
+
+    public Address(long id, string street, string number, string district, string city, State state) : base()
     {
         Id = id;
         Street = street;
@@ -12,7 +16,7 @@ public class Address
         State = state;
     }
 
-    public Guid Id { get; private set; }
+    public long Id { get; private set; }
     public string Street { get; private set; }
     public string Number { get; private set; }
     public string District { get; private set; }

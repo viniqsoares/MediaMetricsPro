@@ -2,7 +2,11 @@
 
 public class State
 {
-    public State(short id, string name, Country country)
+    public State()
+    {
+    }
+
+    public State(short id, string name, Country country) : base()
     {
         Id = id;
         Name = name;
