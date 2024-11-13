@@ -26,7 +26,7 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Restore dependencies
-      run: ls && dotnet restore -v m
+      run: dotnet restore ./MediaMetricsPro.sln -v m
       
     - name: Build
       run: dotnet build -c Release --no-restore
