@@ -3,6 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solutions Items", "Solutions Items", "{7609A6D9-102C-40A7-BCDA-9F9A842F4ADC}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sonarlint", ".sonarlint", "{626A6427-088B-436C-92AF-ABDB7C9B23DD}"
+	ProjectSection(SolutionItems) = preProject
+		.sonarlint\MediaMetricsPro.slconfig = .sonarlint\MediaMetricsPro.slconfig
+		.sonarlint\mediametricsprocsharp.ruleset = .sonarlint\mediametricsprocsharp.ruleset
+		.sonarlint\mediametricsprocsharp.ruleset.xml = .sonarlint\mediametricsprocsharp.ruleset.xml
+		.sonarlint\mediametricspro_secrets_settings.json = .sonarlint\mediametricspro_secrets_settings.json
+		.sonarlint\sonar.settings.json = .sonarlint\sonar.settings.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +26,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A35B3FF8-8E9C-4DD0-A079-2FA5EBE917BA}
 	EndGlobalSection
 EndGlobal
