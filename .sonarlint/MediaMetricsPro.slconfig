@@ -1,0 +1,16 @@
+{
+  "ServerUri": "http://localhost:9000/",
+  "Organization": null,
+  "ProjectKey": "MediaMetricsPro",
+  "ProjectName": "MediaMetricsPro",
+  "Profiles": {
+    "Secrets": {
+      "ProfileKey": "AYc9OORGKlsZIDog4aVa",
+      "ProfileTimestamp": "2023-04-01T14:29:11Z"
+    },
+    "CSharp": {
+      "ProfileKey": "AYc9OOYQKlsZIDog4afy",
+      "ProfileTimestamp": "2023-04-01T14:29:11Z"
+    }
+  }
+}
